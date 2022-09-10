@@ -1,6 +1,9 @@
+.vs/
 bin/
 obj/
 /packages/
 node_modules/
 riderModule.iml
 /_ReSharper.Caches/
+*.css.map
+*.razor.css
