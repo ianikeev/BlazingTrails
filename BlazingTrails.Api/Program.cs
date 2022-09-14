@@ -1,17 +1,16 @@
-using System.Reflection;
 using BlazingTrails.Api.Persistence;
-using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
+using FluentValidation.AspNetCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<BlazingTrailsContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("BlazingTrailsContext")));
-builder.Services.AddControllers().AddFluentValidation(
-    fv => fv.RegisterValidatorsFromAssembly(Assembly.Load("BlazingTrails.Shared")));
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddControllers()
+    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssembly(Assembly.Load("BlazingTrails.Shared")));
 
 var app = builder.Build();
 
@@ -25,8 +24,13 @@ app.UseHttpsRedirection();
 
 app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions()
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Images")),
+    RequestPath = new Microsoft.AspNetCore.Http.PathString("/Images")
+});
 
-app.UseAuthorization();
+app.UseRouting();
 
 app.MapControllers();
 app.MapFallbackToFile("index.html");

@@ -5,9 +5,7 @@
     --brand-hover: #5da030;
 }
 
-body {
-    background-color: #f9f9f9;
-}
+body { background-color: #f9f9f9; }
 
 a {
     color: var(--brand);
@@ -17,22 +15,6 @@ a {
 a:hover {
     color: var(--brand-hover);
     text-decoration: none;
-}
-
-.validation-message {
-    color: red;
-}
-
-input.invalid,
-textarea.invalid,
-select.invalid {
-    border-color: red;
-}
-
-input.valid.modified,
-text.valid.modified,
-select.valid.modified {
-    border-color: green;
 }
 
 .navbar {
@@ -52,8 +34,8 @@ select.valid.modified {
 }
 
 .btn-outline-primary {
-    background-color: var(--brand);
     border-color: var(--brand);
+    color: var(--brand);
 }
 
 .btn-outline-primary:hover {
@@ -67,6 +49,8 @@ select.valid.modified {
     column-gap: 123px;
     row-gap: 75px;
 }
+
+.validation-message { color: red; }
 
 #blazor-error-ui {
     background: lightyellow;

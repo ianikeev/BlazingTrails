@@ -1,3 +1,4 @@
+.idea/
 .vs/
 bin/
 obj/
@@ -6,3 +7,10 @@ node_modules/
 riderModule.iml
 /_ReSharper.Caches/
 *.razor.css
+*.db
+*.db-shm
+*.db-wal
+*.user
+*.log
+*.jpg
+

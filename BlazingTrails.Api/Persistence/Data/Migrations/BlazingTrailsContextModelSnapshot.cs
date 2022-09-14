@@ -14,7 +14,7 @@ namespace BlazingTrails.Api.Persistence.Data.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.0-rc.1.21452.10");
 
             modelBuilder.Entity("BlazingTrails.Api.Persistence.Entities.RouteInstruction", b =>
                 {
